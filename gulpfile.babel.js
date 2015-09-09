@@ -24,9 +24,9 @@ gulp.task('styles', () => {
 
 // Wire Bower dependencies
 gulp.task('wiredep', () => {
-	return gulp.src('app/index.html')
+	return gulp.src('app/*.html')
 		.pipe(wiredep())
-		.pipe(gulp.dest('.tmp'));
+		.pipe(gulp.dest('app'));
 });
 
 // Clean .tmp directory
@@ -47,7 +47,7 @@ gulp.task('serve', ['styles', 'wiredep'], () => {
 
 	// watch for changes
 	gulp.watch([
-		'.tmp/*.html',
+		'app/*.html',
 		'app/scripts/**/*.js',
 		'app/images/**/*'
 	]).on('change', reload);
