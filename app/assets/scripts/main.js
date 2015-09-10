@@ -1,4 +1,4 @@
 (function () {
-	'use strict';
-	console.log('👊 Yippee Ki-yay!');
+  'use strict';
+  console.log('👊 Yippee Ki-yay!');
 })();

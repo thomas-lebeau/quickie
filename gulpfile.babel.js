@@ -10,50 +10,50 @@ const reload = browserSync.reload;
 
 // Compile & autoprefix scss files
 gulp.task('styles', () => {
-	return gulp.src('app/assets/styles/main.scss')
-		.pipe(plumber())
-		.pipe(sass.sync({
-			outputStyle: 'expanded',
-			precision: 10,
-			includePaths: ['.']
-		})).on('error', sass.logError)
-		.pipe(autoprefixer())
-		.pipe(gulp.dest('.tmp/assets/styles'))
-		.pipe(reload({stream: true}));
+  return gulp.src('app/assets/styles/main.scss')
+    .pipe(plumber())
+    .pipe(sass.sync({
+      outputStyle: 'expanded',
+      precision: 10,
+      includePaths: ['.']
+    })).on('error', sass.logError)
+    .pipe(autoprefixer())
+    .pipe(gulp.dest('.tmp/assets/styles'))
+    .pipe(reload({stream: true}));
 });
 
 // Wire Bower dependencies
 gulp.task('wiredep', () => {
-	return gulp.src('app/*.html')
-		.pipe(wiredep())
-		.pipe(gulp.dest('app'));
+  return gulp.src('app/*.html')
+    .pipe(wiredep())
+    .pipe(gulp.dest('app'));
 });
 
 // Clean .tmp directory
 gulp.task('clean', () => {
-	return del('.tmp/**');
+  return del('.tmp/**');
 });
 
 // Run a development server with browsersync
 gulp.task('serve', ['styles', 'wiredep'], () => {
-	browserSync({
-		server: {
-			baseDir: ['.tmp', 'app'],
-			routes: {
-				'/bower_components': 'bower_components'
-			}
-		}
-	});
+  browserSync({
+    server: {
+      baseDir: ['.tmp', 'app'],
+      routes: {
+        '/bower_components': 'bower_components'
+      }
+    }
+  });
 
-	// watch for changes
-	gulp.watch([
-		'app/*.html',
-		'app/scripts/**/*.js',
-		'app/images/**/*'
-	]).on('change', reload);
+  // watch for changes
+  gulp.watch([
+    'app/*.html',
+    'app/scripts/**/*.js',
+    'app/images/**/*'
+  ]).on('change', reload);
 
-	gulp.watch('app/assets/styles/**/*.scss', ['styles']);
-	gulp.watch('bower.json', ['wiredep']);
+  gulp.watch('app/assets/styles/**/*.scss', ['styles']);
+  gulp.watch('bower.json', ['wiredep']);
 });
 
 gulp.task('default', ['serve']);

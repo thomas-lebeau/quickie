@@ -21,6 +21,7 @@
   },
   "xo": {
     "esnext": true,
+    "space": true,
     "envs": {
       "browser": true
     }
