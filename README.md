@@ -1,5 +1,7 @@
 # Quickie
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/thomas-lebeau/quickie.svg)](https://greenkeeper.io/)
+
 > 👊 Kickstart a demo in no time
 
 ## Getting started
