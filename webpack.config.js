@@ -72,7 +72,6 @@ module.exports = {
     }),
     new ProgressBarPlugin({
       format: chalk`Build [{green.bold :bar}] {green.bold :percent} (:elapseds) {gray :msg}`,
-      summary: false,
     }),
   ],
 };

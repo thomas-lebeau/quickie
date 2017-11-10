@@ -7,7 +7,7 @@
 ## Getting started
 In your directory, run:
 ```
-curl -fsSL https://github.com/thomas-lebeau/quickie-jsx/archive/master.tar.gz | tar xz --strip-components=1
+curl -fsSL https://github.com/thomas-lebeau/quickie/archive/master.tar.gz | tar xz --strip-components=1
 ```
 
 ## License
