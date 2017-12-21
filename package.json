@@ -4,67 +4,33 @@
   "description": "quickie boilerplate",
   "scripts": {
     "test": "eslint .",
-    "build": "webpack",
-    "start": "webpack-dev-server"
+    "build": "parcel build src/index.html",
+    "start": "parcel src/index.html"
   },
   "author": "",
   "license": "ISC",
   "package-lock": false,
   "devDependencies": {
-    "autoprefixer": "^7.1.4",
-    "babel-core": "^6.26.0",
-    "babel-eslint": "^8.0.0",
-    "babel-loader": "^7.1.2",
-    "babel-plugin-transform-decorators-legacy": "^1.3.4",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.6.0",
-    "babel-preset-stage-1": "^6.24.1",
-    "chalk": "^2.1.0",
-    "css-loader": "^0.28.5",
     "eslint": "^4.5.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-prettier": "^2.3.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.3.0",
-    "html-loader": "^0.5.1",
-    "html-webpack-plugin": "^2.30.1",
-    "json-loader": "^0.5.7",
-    "node-sass": "^4.5.3",
-    "postcss-loader": "^2.0.6",
-    "prettier": "^1.7.0",
-    "progress-bar-webpack-plugin": "^1.10.0",
-    "sass-loader": "^6.0.6",
-    "webpack": "^3.6.0",
-    "webpack-dev-server": "^2.8.2"
-  },
-  "dependencies": {},
-  "babel": {
-    "presets": [
-      "env",
-      "stage-1"
-    ],
-    "plugins": [
-      "transform-decorators-legacy"
-    ]
+    "parcel-bundler": "^1.2.0",
+    "prettier": "^1.7.0"
   },
   "eslintConfig": {
-    "extends": [
-      "airbnb",
-      "prettier"
-    ],
+    "extends": ["airbnb", "prettier"],
     "root": true,
     "env": {
       "browser": true,
       "es6": true
-    },
-    "parser": "babel-eslint"
+    }
   },
   "prettier": {
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "eslintIgnore": [
-    "dist"
-  ]
+  "eslintIgnore": ["dist"]
 }
