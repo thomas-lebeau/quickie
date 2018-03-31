@@ -5,7 +5,7 @@
   "scripts": {
     "test": "eslint .",
     "build": "parcel build src/index.html",
-    "start": "parcel src/index.html"
+    "start": "parcel src/index.html --open"
   },
   "author": "",
   "license": "ISC",
@@ -14,15 +14,19 @@
     "eslint": "^4.16.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-import": "^2.10.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.5.1",
-    "node-sass": "^4.7.2",
-    "parcel-bundler": "^1.5.0",
-    "prettier": "^1.10.2"
+    "eslint-plugin-react": "^7.7.0",
+    "node-sass": "^4.8.3",
+    "parcel-bundler": "^1.7.0",
+    "postcss-modules": "^1.1.0",
+    "prettier": "^1.11.1"
   },
   "eslintConfig": {
-    "extends": ["airbnb", "prettier"],
+    "extends": [
+      "airbnb",
+      "prettier"
+    ],
     "root": true,
     "env": {
       "browser": true,
@@ -33,5 +37,11 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "eslintIgnore": ["dist"]
+  "postcss": {
+    "modules": true
+  },
+  "eslintIgnore": [
+    "dist"
+  ],
+  "dependencies": {}
 }
