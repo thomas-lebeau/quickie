@@ -5,22 +5,24 @@
   "scripts": {
     "test": "eslint .",
     "build": "parcel build src/index.html",
-    "start": "parcel src/index.html --open"
+    "start": "parcel src/index.html --open",
+    "deploy": "surge --project ./build --token $SURGE_TOKEN"
   },
   "author": "",
   "license": "ISC",
   "package-lock": false,
   "devDependencies": {
-    "eslint": "^5.9.0",
+    "eslint": "^5.13.0",
     "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-prettier": "^3.3.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-react": "^7.11.1",
-    "node-sass": "^4.10.0",
-    "parcel-bundler": "^1.10.3",
+    "eslint-config-prettier": "^3.6.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
+    "node-sass": "^4.11.0",
+    "parcel-bundler": "^1.11.0",
     "postcss-modules": "^1.4.1",
-    "prettier": "^1.15.2"
+    "prettier": "^1.16.4",
+    "surge": "^0.20.1"
   },
   "eslintConfig": {
     "extends": [
