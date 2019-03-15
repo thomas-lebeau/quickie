@@ -1,33 +1,60 @@
 {
   "name": "quickie",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "quickie boilerplate",
   "scripts": {
+    "start": "parcel src/index.html",
     "test": "eslint .",
-    "build": "parcel build src/index.html",
-    "start": "parcel src/index.html --open",
-    "deploy": "surge --project ./build --token $SURGE_TOKEN"
+    "size": "size-limit",
+    "build": "parcel build src/index.html --experimental-scope-hoisting",
+    "deploy": "surge --project ./dist --token $SURGE_TOKEN",
+    "clean": "rimraf ./dist",
+    "copy": "npm run copy:cname",
+    "copy:cname": "cp ./src/CNAME ./dist",
+    "surge:setup": "surge token",
+    "postbuild": "npm run size",
+    "prebuild": "npm run clean && npm test"
   },
   "author": "",
   "license": "ISC",
   "package-lock": false,
   "devDependencies": {
-    "eslint": "^5.13.0",
+    "browserslist-config-google": "^1.5.0",
+    "eslint": "^5.15.2",
     "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-prettier": "^3.6.0",
+    "eslint-config-prettier": "^4.1.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
-    "node-sass": "^4.11.0",
-    "parcel-bundler": "^1.11.0",
+    "parcel-bundler": "^1.12.1",
     "postcss-modules": "^1.4.1",
     "prettier": "^1.16.4",
+    "sass": "^1.17.2",
+    "size-limit": "^0.21.1",
     "surge": "^0.20.1"
+  },
+  "dependencies": {},
+  "size-limit": [
+    {
+      "path": [
+        "./dist/*.js"
+      ],
+      "limit": "5 KB",
+      "webpack": false
+    }
+  ],
+  "browserslist": [
+    "extends browserslist-config-google/modern"
+  ],
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "es5"
   },
   "eslintConfig": {
     "extends": [
       "airbnb",
-      "prettier"
+      "prettier",
+      "prettier/react"
     ],
     "root": true,
     "env": {
@@ -35,15 +62,10 @@
       "es6": true
     }
   },
-  "prettier": {
-    "singleQuote": true,
-    "trailingComma": "es5"
-  },
-  "postcss": {
-    "modules": true
-  },
   "eslintIgnore": [
     "dist"
   ],
-  "dependencies": {}
+  "postcss": {
+    "modules": true
+  }
 }
