@@ -27,7 +27,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
     "parcel-bundler": "^1.12.1",
-    "postcss-modules": "^1.4.1",
+    "postcss-modules": "^1.5.0",
     "prettier": "^1.16.4",
     "sass": "^1.17.2",
     "size-limit": "^0.21.1",
