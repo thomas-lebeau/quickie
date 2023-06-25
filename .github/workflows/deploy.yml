@@ -1,0 +1,40 @@
+name: master-build
+
+on:
+    push:
+        branches: [master]
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v3
+
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: 16
+                  cache: 'npm'
+
+            - run: npm ci
+
+            - run: npm run lint
+
+            - run: npm run build
+
+            - name: Version
+              id: version
+              run: echo "version=$(jq -r .version package.json)" >> "$GITHUB_OUTPUT"
+
+            - run: npm run deploy
+              env:
+                  SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+                  SURGE_LOGIN: ${{ vars.SURGE_LOGIN }}
+
+            - uses: thomas-lebeau/actions/deploy-status@master
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  environment: production
+                  url: http://piscine.surge.sh
+                  description: v${{steps.version.outputs.version}}
+                  auto_inactive: true

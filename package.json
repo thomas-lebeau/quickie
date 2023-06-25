@@ -1,71 +1,43 @@
 {
   "name": "quickie",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "quickie boilerplate",
   "scripts": {
-    "start": "parcel src/index.html",
-    "test": "eslint .",
-    "size": "size-limit",
-    "build": "parcel build src/index.html --experimental-scope-hoisting",
-    "deploy": "surge --project ./dist --token $SURGE_TOKEN",
+    "start": "parcel",
+    "test": "npm run lint",
+    "lint": "eslint src",
+    "build": "parcel build",
+    "deploy": "surge --project ./dist",
     "clean": "rimraf ./dist",
-    "copy": "npm run copy:cname",
-    "copy:cname": "cp ./src/CNAME ./dist",
-    "surge:setup": "surge token",
-    "postbuild": "npm run size",
-    "prebuild": "npm run clean && npm test"
+    "copy": "cp ./src/CNAME ./dist",
+    "postbuild": "npm run copy",
+    "prebuild": "npm run clean"
   },
-  "author": "",
+  "author": {
+    "name": "Thomas Lebeau",
+    "email": "lebeau.thomas@gmail.com"
+  },
   "license": "ISC",
-  "package-lock": false,
+  "source": "src/index.html",
+  "type": "commonjs",
   "devDependencies": {
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
+    "@typescript-eslint/eslint-plugin": "^5.59.2",
+    "@typescript-eslint/parser": "^5.59.2",
     "browserslist-config-google": "^1.5.0",
-    "eslint": "^5.15.2",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-prettier": "^4.1.0",
-    "eslint-plugin-import": "^2.16.0",
-    "eslint-plugin-jsx-a11y": "^6.2.1",
-    "eslint-plugin-react": "^7.12.4",
-    "parcel-bundler": "^1.12.1",
-    "postcss-modules": "^1.4.1",
-    "prettier": "^1.16.4",
-    "sass": "^1.17.2",
-    "size-limit": "^0.21.1",
-    "surge": "^0.20.1"
+    "eslint": "^8.39.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "parcel": "^2.8.3",
+    "prettier": "^2.8.8",
+    "process": "^0.11.10",
+    "rimraf": "^5.0.0",
+    "surge": "^0.23.1"
   },
-  "dependencies": {},
-  "size-limit": [
-    {
-      "path": [
-        "./dist/*.js"
-      ],
-      "limit": "5 KB",
-      "webpack": false
-    }
-  ],
-  "browserslist": [
-    "extends browserslist-config-google/modern"
-  ],
-  "prettier": {
-    "singleQuote": true,
-    "trailingComma": "es5"
-  },
-  "eslintConfig": {
-    "extends": [
-      "airbnb",
-      "prettier",
-      "prettier/react"
-    ],
-    "root": true,
-    "env": {
-      "browser": true,
-      "es6": true
-    }
-  },
-  "eslintIgnore": [
-    "dist"
-  ],
-  "postcss": {
-    "modules": true
+  "dependencies": {
+    "classnames": "^2.3.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }
