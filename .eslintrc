@@ -18,6 +18,5 @@
     },
     "rules": {
         "spaced-comment": "error",
-        "capitalized-comments": "error"
     }
 }
