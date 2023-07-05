@@ -1,8 +1,10 @@
-name: master-build
+name: main-build
 
 on:
     push:
-        branches: [master]
+        branches:
+            - master
+            - main
 
 jobs:
     deploy:
