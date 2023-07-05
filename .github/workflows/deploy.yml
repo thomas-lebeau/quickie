@@ -22,9 +22,11 @@ jobs:
 
             - run: npm run build
 
-            - name: Version
-              id: version
+            - id: version
               run: echo "version=$(jq -r .version package.json)" >> "$GITHUB_OUTPUT"
+
+            - id: cname
+              run: cat ./src/CNAME >> "$GITHUB_OUTPUT"
 
             - run: npm run deploy
               env:
@@ -32,9 +34,10 @@ jobs:
                   SURGE_LOGIN: ${{ vars.SURGE_LOGIN }}
 
             - uses: thomas-lebeau/actions/deploy-status@master
+              if: ${{ steps.cname.outputs.cname }}
               with:
                   github_token: ${{ secrets.GITHUB_TOKEN }}
                   environment: production
-                  url: http://piscine.surge.sh
-                  description: v${{steps.version.outputs.version}}
+                  url: ${{ steps.cname.outputs.cname }}
+                  description: v${{ steps.version.outputs.version }}
                   auto_inactive: true
